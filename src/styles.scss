@@ -1,0 +1,24 @@
+@import "@fortawesome/fontawesome-free/css/all.min.css";
+
+/* src/styles.scss */
+
+/* Define the custom font */
+@font-face {
+  font-family: "Inter";
+  src: url("https://fonts.gstatic.com/s/inter/v18/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Apply the font globally to the entire application */
+body {
+  font-family: inter-medium, sans-serif !important;
+  font-size: 16px; /* Optional: Set a default font size */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #1a1a1a;
+}

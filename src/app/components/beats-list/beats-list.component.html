@@ -1,0 +1,80 @@
+<div class="beats-container">
+  <div class="header">
+    <h1>Explore <span class="purple">Beats</span></h1>
+    <button class="refresh-btn">Refresh</button>
+  </div>
+
+  <div class="filter-buttons">
+    <button class="filter-btn active">Trending Beats</button>
+    <button class="filter-btn">WAV under ₹999</button>
+    <button class="filter-btn">Wav + Stems under ₹1,999</button>
+    <button class="filter-btn">Beats with Exclusive</button>
+  </div>
+
+  <div class="search-section">
+    <div class="search-box">
+      <i class="fas fa-search"></i>
+      <input type="text" placeholder="Search top beats">
+    </div>
+    <div class="view-options">
+      <button class="view-btn"><i class="fas fa-bars"></i></button>
+      <button class="view-btn"><i class="fas fa-th-large"></i></button>
+    </div>
+  </div>
+
+  <div class="filters-row">
+    <div class="left-filters">
+      <span>Filters:</span>
+      <button class="filter-dropdown">Beat Types <i class="fas fa-chevron-down"></i></button>
+      <button class="filter-dropdown">Moods <i class="fas fa-chevron-down"></i></button>
+      <button class="filter-dropdown">Tempo <i class="fas fa-chevron-down"></i></button>
+      <button class="filter-dropdown">Genre <i class="fas fa-chevron-down"></i></button>
+      <button class="filter-dropdown">Keys <i class="fas fa-chevron-down"></i></button>
+      <button class="filter-dropdown">Instruments <i class="fas fa-chevron-down"></i></button>
+      <button class="filter-dropdown">Price <i class="fas fa-chevron-down"></i></button>
+    </div>
+    <div class="sort-options">
+      <span>Sort by:</span>
+      <button class="sort-dropdown">For you <i class="fas fa-chevron-down"></i></button>
+    </div>
+  </div>
+
+  <div class="beats-list">
+    <div *ngFor="let beat of beats" class="beat-item">
+      <div class="play-section">
+        <button class="play-btn" (click)="playPreview(beat._id, beat.preview)">
+          <i class="fas" [class.fa-play]="currentlyPlaying !== beat._id" 
+             [class.fa-pause]="currentlyPlaying === beat._id"></i>
+        </button>
+        <img [src]="beat.cover_picture" [alt]="beat.title" class="cover-img"
+             (error)="handleImageError($event)">
+      </div>
+      
+      <div class="beat-info">
+        <h3>{{ beat.title }}</h3>
+        <div class="producer">
+          <span>{{ beat.created_by.handle }}</span>
+          <i *ngIf="beat.producer?.is_verfied" class="fas fa-check-circle verified"></i>
+        </div>
+        <div class="beat-stats">
+          <span>{{ beat.tempo }} BPM</span>
+          <span>{{ formatKey(beat.key) }}</span>
+        </div>
+      </div>
+
+      <div class="tags">
+        <span class="tag" *ngFor="let tag of beat.tag">#{{ tag }}</span>
+      </div>
+
+      <div class="price-section">
+        <button class="buy-btn">
+          <i class="fas fa-shopping-cart"></i>
+          ₹{{ getPrice(beat) }}
+        </button>
+        <button class="more-btn">
+          <i class="fas fa-ellipsis-v"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div> 
