@@ -8,7 +8,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px 0;
+    padding: 20px 0;
 
     h1 {
       font-size: 24px;
@@ -44,7 +44,7 @@
   .filter-buttons {
     display: flex;
     gap: 12px;
-    margin-bottom: 24px;
+    padding-bottom: 30px;
 
     .filter-btn {
       padding: 8px 16px;
@@ -69,7 +69,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 24px;
+    padding: 15px 0 28px;
 
     .search-box {
       flex: 1;
@@ -186,31 +186,28 @@
     display: flex;
     align-items: center;
     padding: 12px 16px;
-    background: #2a2a2a;
     border-radius: 8px;
     gap: 20px;
+
+    .play-btn {
+      cursor: pointer;
+      &:hover {
+        opacity: 1;
+      }
+      i {
+        font-size: 30px;
+        color: white;
+
+        &:hover {
+          color: #7000ff;
+        }
+      }
+    }
 
     .play-section {
       position: relative;
       width: 56px;
       height: 56px;
-
-      .play-btn {
-        position: absolute;
-        inset: 0;
-        background: transparent;
-        border: none;
-        color: white;
-        z-index: 2;
-        cursor: pointer;
-        opacity: 0;
-        transition: opacity 0.2s;
-
-        &:hover {
-          opacity: 1;
-          background: rgba(0, 0, 0, 0.5);
-        }
-      }
 
       .cover-img {
         width: 100%;
@@ -238,10 +235,22 @@
         color: #888;
         font-size: 14px;
         margin-bottom: 4px;
+        gap: 10px;
 
         .verified {
           color: #8833ff;
           font-size: 12px;
+        }
+        p {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          margin: 5px 0;
+
+          img {
+            width: 12px;
+            height: 12px;
+          }
         }
       }
 
@@ -287,10 +296,6 @@
         i {
           font-size: 14px;
         }
-
-        &:hover {
-          background: #7722ee;
-        }
       }
 
       .more-btn {
@@ -308,6 +313,14 @@
         &:hover {
           background: #333;
           color: white;
+        }
+      }
+    }
+    &:hover {
+      background: #2a2a2a;
+      .play-btn {
+        i {
+          color: #7000ff;
         }
       }
     }
