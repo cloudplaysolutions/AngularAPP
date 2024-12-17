@@ -20,12 +20,20 @@
     justify-content: space-between;
     align-items: center;
     padding: 18px 0;
+    @media screen and (max-width:767px) {
+      padding:18px 18px 30px;
+      box-sizing: border-box;
+      flex-wrap:wrap;
+    }
 
     .left-section {
       display: flex;
       align-items: center;
       gap: 17px;
-
+      @media screen and (max-width:767px) {
+        box-sizing: border-box;
+        flex-wrap:wrap;
+      }
       .logo {
         display: flex;
         align-items: center;
@@ -44,10 +52,15 @@
         align-items: center;
         background: #303030;
         border-radius: 6px;
-        padding: 2px;
+        padding:5px;
         width: 282px;
         border: 0.75px solid #616161;
-
+        position: relative;
+        @media screen and (max-width:767px) {
+          box-sizing: border-box;
+          width:100%;
+          margin-top:10px;
+        }
         input {
           flex: 1;
           background: transparent;
@@ -75,6 +88,9 @@
           border-radius: 4px;
           font-size: 14px;
           cursor: pointer;
+          position: absolute;
+          right:5px;
+          background:#3f3f3f;
 
           i {
             font-size: 12px;
@@ -88,7 +104,11 @@
       display: flex;
       align-items: center;
       gap: 20px;
-
+      @media screen and (max-width:767px) {
+        position: absolute;
+        right: 19px;
+        top: 22px;
+      }
       .sign-in {
         background: transparent;
         border: none;
